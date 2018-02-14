@@ -1,0 +1,23 @@
+{
+  "name": "noteapp",
+  "version": "1.0.0",
+  "description": "notes app built in node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MorentDennis/node-notesApp.git"
+  },
+  "keywords": [
+    "node",
+    "notes"
+  ],
+  "author": "DM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MorentDennis/node-notesApp/issues"
+  },
+  "homepage": "https://github.com/MorentDennis/node-notesApp#readme"
+}
