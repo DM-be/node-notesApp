@@ -7,5 +7,28 @@ module.exports.add = (a, b) => {
     return a + b
 }
 
+const addNote = (title, body) => {
+    console.log('adding note')
+}
 
-console.log(module)
+const getAll = () => {
+    
+}
+
+const getNote = (title) => {
+    
+}
+
+const removeNote = (title) => {
+
+}
+
+module.exports = {
+    addNote,
+    getAll,
+    getNote,
+    removeNote
+    
+}
+
+

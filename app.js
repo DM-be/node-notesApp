@@ -1,17 +1,31 @@
 console.log('starting app.js');
 
 const fs = require('fs');
-const os = require('os');
+const _ = require('lodash');
+const yargs = require('yargs');
+
 const notes = require('./notes');
 
-//var userName = os.userInfo().username;
-
-//console.log(notes.age)
-
-//fs.appendFileSync('greetings.txt', `Hello ${userName}`);
-
-//console.log(userName)
+const argv = yargs.argv;
 
 
-var res = notes.add(1,2);
-console.log(res)
+const command = argv._[0];
+switch (command) {
+    case 'add':
+        notes.addNote(argv.title, argv.body)
+        
+        break;
+    case 'list':
+        notes.getAll();
+        break;
+    case 'read':
+        notes.getNote(argv.title)
+        break;    
+    case 'remove':
+        notes.removeNote(argv.title)
+        break;
+
+    default:
+    console.log('command not recognized')
+        break;
+}
