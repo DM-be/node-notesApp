@@ -12,17 +12,28 @@ const argv = yargs.argv;
 const command = argv._[0];
 switch (command) {
     case 'add':
-        notes.addNote(argv.title, argv.body)
-        
+        var note = notes.addNote(argv.title, argv.body)
+        if(!note)
+        {
+            console.log("note title already in use")
+        }
         break;
     case 'list':
-        notes.getAll();
+        var allNotes = notes.getAll();
+        allNotes.forEach(note => console.log(`title: ${note.title} body: ${note.body}`));
         break;
     case 'read':
-        notes.getNote(argv.title)
+        var note = notes.getNote(argv.title)
+        console.log(`title: ${note.title} body: ${note.body}`)
         break;    
     case 'remove':
-        notes.removeNote(argv.title)
+        if(notes.removeNote(argv.title))
+        {
+            console.log("note was removed")
+        }
+        else{
+            console.log("no note was found to remove")
+        }
         break;
 
     default:

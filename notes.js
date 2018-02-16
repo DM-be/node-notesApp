@@ -18,7 +18,12 @@ const fetchNotes = () => {
 }
 
 const saveNotes = (notes) => {
-    fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+    try {
+        fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+    } catch (error) {
+        
+    }
+    
 } 
 
 
@@ -41,21 +46,26 @@ const addNote = (title, body) => {
     {
         notes.push(note);
         saveNotes(notes);
+        return note;
     }
 }
 
 
 
 
-const getAll = () => {
-    
-}
+const getAll = () => fetchNotes();
 
 const getNote = (title) => {
+    var notes = fetchNotes();
+    return notes.find(note => note.title === title);
     
 }
 
 const removeNote = (title) => {
+    var notes = fetchNotes();
+    var filteredNotes  = notes.filter(note => note.title !== title)
+    saveNotes(filteredNotes);
+    return !(filteredNotes.length === notes.length)
 
 }
 
